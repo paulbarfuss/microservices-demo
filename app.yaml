@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: microservices-demo-app-of-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    name: in-cluster
+  project: default
+  source:
+    path: apps
+    repoURL: https://github.com/paulbarfuss/microservices-demo/apps
+    targetRevision: HEAD

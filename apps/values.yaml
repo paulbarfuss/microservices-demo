@@ -1,0 +1,22 @@
+namespace: microservices-demo
+enableBuilds: true
+
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/paulbarfuss/microservices-demo
+    targetRevision: HEAD
+
+applications:
+  - adservice
+  - cartservice
+  - checkoutservice
+  - currencyservice
+  - emailservice
+  - frontend
+  - loadgenerator
+  - paymentservice
+  - productcatalogservice
+  - recommendationservice
+  - shippingservice
