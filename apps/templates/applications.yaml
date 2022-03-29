@@ -1,5 +1,6 @@
 {{- $spec := .Values.spec }}
 {{- range $app := .Values.applications }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
