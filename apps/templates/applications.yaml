@@ -18,6 +18,12 @@ spec:
     repoURL: {{ $spec.source.repoURL }}
     targetRevision: {{ $spec.source.targetRevision }}
   syncPolicy:
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m0s
+      limit: 2
     automated:
       prune: true
       selfHeal: true
