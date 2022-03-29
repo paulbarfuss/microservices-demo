@@ -1,9 +1,9 @@
-targetNamespace: microservices-demo
 build:
   enabled: True
 
 spec:
   destination:
+    namespace: microservices-demo
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/paulbarfuss/microservices-demo
