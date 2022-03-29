@@ -18,4 +18,15 @@ spec:
     path: openshift-builds
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=true
+  ignoreDifferences:
+    - group: build.openshift.io
+      kind: BuildConfig
+      jsonPointers:
+        - /spec/triggers
 {{- end }}
