@@ -16,5 +16,5 @@ spec:
         - values.yaml
     path: apps
     repoURL: https://github.com/paulbarfuss/microservices-demo
-    targetRevision: HEAD
+    targetRevision: openshift-install
 

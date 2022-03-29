@@ -6,7 +6,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/paulbarfuss/microservices-demo
-    targetRevision: HEAD
+    targetRevision: openshift-install
 
 applications:
   - adservice
