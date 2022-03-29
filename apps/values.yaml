@@ -1,5 +1,5 @@
 buildConfig:
-  enabled: True
+  enabled: False
 
 spec:
   destination:
