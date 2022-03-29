@@ -9,12 +9,12 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: {{ .spec.destination.namespace }}
-    server: {{ .spec.destination.server }}
+    namespace: {{ $spec.destination.namespace }}
+    server: {{ $spec.destination.server }}
   project: default
   source:
     path: src/{{ . }}
-    repoURL: {{ .spec.source.repoURL }}
-    targetRevision: {{ .spec.source.targetRevision }}
+    repoURL: {{ $spec.source.repoURL }}
+    targetRevision: {{ $spec.source.targetRevision }}
 {{- end }}
 {{- end }}
