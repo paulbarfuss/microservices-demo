@@ -11,6 +11,10 @@ spec:
     name: in-cluster
   project: default
   source:
+    helm:
+      valuesFiles:
+        - values.yaml
     path: apps
     repoURL: https://github.com/paulbarfuss/microservices-demo
     targetRevision: HEAD
+
