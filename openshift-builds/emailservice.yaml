@@ -11,7 +11,7 @@ spec:
   source:
     contextDir: 'src/emailservice/'
     git:
-      ref: master
+      ref: main
       uri: https://github.com/paulbarfuss/microservices-demo
     type: Git
   strategy:
