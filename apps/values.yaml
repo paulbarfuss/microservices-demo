@@ -8,7 +8,7 @@ spec:
     repoURL: https://github.com/paulbarfuss/microservices-demo
     targetRevision: HEAD
 
-appslications:
+applications:
   - adservice
   - cartservice
   - checkoutservice
