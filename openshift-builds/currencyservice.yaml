@@ -1,0 +1,29 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: currencyservice
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'currencyservice:latest'
+  source:
+    contextDir: 'src/currencyservice/'
+    git:
+      ref: master
+      uri: https://github.com/paulbarfuss/microservices-demo
+    type: Git
+  strategy:
+    type: Docker
+  triggers:
+    - type: ConfigChange
+    - type: ImageChange
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: currencyservice
+spec:
+  lookupPolicy:
+    local: true
