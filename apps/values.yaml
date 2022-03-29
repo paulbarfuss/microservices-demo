@@ -1,5 +1,6 @@
-namespace: microservices-demo
-enableBuilds: true
+targetNamespace: microservices-demo
+build:
+  enabled: True
 
 spec:
   destination:
@@ -20,3 +21,4 @@ applications:
   - productcatalogservice
   - recommendationservice
   - shippingservice
+

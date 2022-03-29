@@ -1,9 +1,12 @@
-{{- range .Values.applications }}
+{{- if .Values.build.enabled }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ . }}
   namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -12,7 +15,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: src/{{ . }}
+    path: openshift-builds
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
 {{- end }}
+---
+
