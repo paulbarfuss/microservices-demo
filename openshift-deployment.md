@@ -1,15 +1,6 @@
-# Create a microservices-demo namespaces
-
-```bash
-oc new-project microservices-demo-mesh
-oc new-project microservices-demo
-```
-
 # Install ArgoCD operator
 
-From the OpenShift OperatorHub, install the following:
-
-- Red Hat OpenShift GitOps
+Install Red Hat OpenShift GitOps operator
 
 ```bash
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-gitops-operator/overlays/stable
