@@ -1,9 +1,9 @@
 {{- $spec := .Values.spec }}
-{{- range .Values.applications }}
+{{- range $application := .Values.applications }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ . }}
+  name: {{ $application }}
   namespace: openshift-gitops
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,7 +13,7 @@ spec:
     server: {{ $spec.destination.server }}
   project: default
   source:
-    path: src/{{ . }}
+    path: src/{{ $application }}
     repoURL: {{ $spec.source.repoURL }}
     targetRevision: {{ $spec.source.targetRevision }}
 {{- end }}
