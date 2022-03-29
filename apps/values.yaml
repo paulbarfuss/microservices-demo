@@ -1,5 +1,5 @@
 buildConfig:
-  enabled: False
+  enabled: True
 
 spec:
   destination:
@@ -8,17 +8,3 @@ spec:
   source:
     repoURL: https://github.com/paulbarfuss/microservices-demo
     targetRevision: openshift-install
-
-applications:
-  - adservice
-  - cartservice
-  - checkoutservice
-  - currencyservice
-  - emailservice
-  - frontend
-  - loadgenerator
-  - paymentservice
-  - productcatalogservice
-  - recommendationservice
-  - shippingservice
-
