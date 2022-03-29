@@ -1,0 +1,29 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: shippingservice
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'shippingservice:latest'
+  source:
+    contextDir: 'src/shippingservice/'
+    git:
+      ref: master
+      uri: https://github.com/paulbarfuss/microservices-demo
+    type: Git
+  strategy:
+    type: Docker
+  triggers:
+    - type: ConfigChange
+    - type: ImageChange
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: shippingservice
+spec:
+  lookupPolicy:
+    local: true
