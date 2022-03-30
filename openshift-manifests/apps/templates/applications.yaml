@@ -29,5 +29,21 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - Validate=true   
+      - Validate=true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+        - /spec/template/spec/containers/0/image
+        - /spec/template/spec/containers/1/image
+    - group: build.openshift.io
+      kind: BuildConfig
+      jsonPointers:
+        - /spec/triggers
+    - group: route.openshift.io
+      kind: Route
+      jsonPointers:
+        - /status/ingress
+        - /spec/host
 {{- end }}
