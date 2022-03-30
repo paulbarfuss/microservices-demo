@@ -1,4 +1,8 @@
-# Install ArgoCD operator
+# Install Online Boutique in Openshift
+
+## Install Operators
+
+### Install ArgoCD Operator
 
 Install Red Hat OpenShift GitOps operator
 
@@ -13,15 +17,21 @@ oc get argocd -n openshift-gitops
 oc get route -n openshift-gitops-server -n openshift-gitops
 ```
 
-# Install Service Mesh Operators
+### Install Service Mesh Operators
 
-Install Red Hat OpenShift Service Mesh and a default instance in the istio-system namespace:
+Install Red Hat OpenShift Service Mesh and a default istio-system namespace
 
 ```bash
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-servicemesh/operator/overlays/stable
 ```
 
-Install Kiali and Jaeger Operators:
+Install Elasticsearch Operator
+
+```bash
+oc apply -k https://github.com/redhat-cop/gitops-catalog/elasticsearch-operator/overlays/stable
+```
+
+Install Kiali and Jaeger Operators
 
 
 ```bash
@@ -30,13 +40,8 @@ oc apply -k https://github.com/redhat-cop/gitops-catalog/jaeger-operator/overlay
 
 ```
 
-Install Elasticsearch Operator:
 
-```bash
-oc apply -k https://github.com/redhat-cop/gitops-catalog/elasticsearch-operator/overlays/stable
-```
-
-Ensure the ServiceMeshControlPlane CRD exists before installing an instance:
+Ensure the ServiceMeshControlPlane CRD exists before installing an instance of Service Mesh
 
 ```bash
 oc get crds servicemeshcontrolplanes.maistra.io
@@ -44,7 +49,9 @@ oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-servicemesh/i
 oc get servicemeshcontrolplane istio-system -n istio-system
 ```
 
-# Install Tekton
+### Install Tekton
+
+**TODO: Add build and deploy steps as Tekton Pipelines**
 
 Install Red Hat OpenShift Pipelines operator
 
@@ -52,8 +59,16 @@ Install Red Hat OpenShift Pipelines operator
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-pipelines-operator/overlays/stable
 ```
 
-# Deploy ArgoCD App of Apps
+## Deploy ArgoCD App of Apps
 
 ```bash
 oc create -f app-of-apps.yaml
+```
+
+### Visit the Online Boutique Shop
+
+Run the following command to get the Openshift Route for the new Istio Ingress Gateway
+
+```bash
+oc -n istio-system get route istio-ingressgateway -o jsonpath='{.spec.host}'
 ```
