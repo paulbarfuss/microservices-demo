@@ -25,6 +25,7 @@ spec:
       labels:
         app: loadgenerator
       annotations:
+        sidecar.istio.io/inject: "true"
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       serviceAccountName: default
