@@ -21,10 +21,25 @@ Install Red Hat OpenShift Service Mesh and a default instance in the istio-syste
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-servicemesh/operator/overlays/stable
 ```
 
+Install Kiali and Jaeger Operators:
+
+
+```bash
+oc apply -k https://github.com/redhat-cop/gitops-catalog/kiali-operator/overlays/stable
+oc apply -k https://github.com/redhat-cop/gitops-catalog/jaeger-operator/overlays/stable
+
+```
+
+Install Elasticsearch Operator:
+
+```bash
+oc apply -k https://github.com/redhat-cop/gitops-catalog/elasticsearch-operator/overlays/stable
+```
+
 Ensure the ServiceMeshControlPlane CRD exists before installing an instance:
 
 ```bash
-oc get crd servicemeshcontrolplanes.maistra.io
+oc get crds servicemeshcontrolplanes.maistra.io
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-servicemesh/instance/overlays/default
 oc get servicemeshcontrolplane istio-system -n istio-system
 ```
@@ -35,4 +50,10 @@ Install Red Hat OpenShift Pipelines operator
 
 ```bash
 oc apply -k https://github.com/redhat-cop/gitops-catalog/openshift-pipelines-operator/overlays/stable
+```
+
+# Deploy ArgoCD App of Apps
+
+```bash
+oc create -f app-of-apps.yaml
 ```

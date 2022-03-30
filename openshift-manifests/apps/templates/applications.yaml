@@ -15,7 +15,7 @@ spec:
     server: {{ $spec.destination.server }}
   project: default
   source:
-    path: openshift-manifests/{{ $app }}
+    path: openshift-manifests/deploy/{{ $app }}
     repoURL: {{ $spec.source.repoURL }}
     targetRevision: {{ $spec.source.targetRevision }}
   syncPolicy:

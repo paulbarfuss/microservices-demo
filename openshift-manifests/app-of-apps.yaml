@@ -14,7 +14,7 @@ spec:
     helm:
       valuesFiles:
         - values.yaml
-    path: apps
+    path: openshift-manifests/apps
     repoURL: https://github.com/paulbarfuss/microservices-demo
     targetRevision: openshift-install
   syncPolicy:
