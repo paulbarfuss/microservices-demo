@@ -25,3 +25,4 @@ applications:
   - productcatalogservice
   - recommendationservice
   - shippingservice
+  - servicemesh
