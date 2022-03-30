@@ -2,6 +2,8 @@
 applicationNamespace: openshift-gitops
 buildConfig:
   enabled: True
+serviceMesh:
+  enabled: True
 
 spec:
   destination:
