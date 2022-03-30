@@ -9,7 +9,7 @@ spec:
       kind: ImageStreamTag
       name: 'frontend:latest'
   source:
-    contextDir: 'src/frontend/'
+    contextDir: 'src/frontend'
     git:
       ref: main
       uri: https://github.com/paulbarfuss/microservices-demo
@@ -18,7 +18,6 @@ spec:
     type: Docker
   triggers:
     - type: ConfigChange
-    - type: ImageChange
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream
