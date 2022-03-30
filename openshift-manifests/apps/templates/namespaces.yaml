@@ -5,3 +5,5 @@ metadata:
   name: {{ .Values.spec.destination.namespace }}
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
+  labels:
+    istio-injection: enabled
