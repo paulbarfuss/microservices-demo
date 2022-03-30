@@ -28,7 +28,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: shippingservice
+        image: image-registry.openshift-image-registry.svc:5000/microservices-demo/shippingservice:latest
         ports:
         - containerPort: 50051
         env:

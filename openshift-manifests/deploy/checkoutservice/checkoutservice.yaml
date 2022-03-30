@@ -28,7 +28,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: checkoutservice
+          image: image-registry.openshift-image-registry.svc:5000/microservices-demo/checkoutservice:latest
           ports:
           - containerPort: 5050
           readinessProbe:
