@@ -1,3 +1,4 @@
+{{- $ns := .Values.applicationNamespace }}
 {{- $spec := .Values.spec }}
 {{- range $app := .Values.applications }}
 ---
@@ -5,7 +6,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ $app }}
-  namespace: openshift-gitops
+  namespace: {{ $ns }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

@@ -1,3 +1,5 @@
+---
+applicationNamespace: openshift-gitops
 buildConfig:
   enabled: True
 
@@ -8,3 +10,16 @@ spec:
   source:
     repoURL: https://github.com/paulbarfuss/microservices-demo
     targetRevision: openshift-install
+
+applications:
+  - adservice
+  - cartservice
+  - checkoutservice
+  - currencyservice
+  - emailservice
+  - frontend
+  - loadgenerator
+  - paymentservice
+  - productcatalogservice
+  - recommendationservice
+  - shippingservice
