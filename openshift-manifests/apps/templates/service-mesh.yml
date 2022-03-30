@@ -5,8 +5,6 @@ kind: Application
 metadata:
   name: ServiceMesh
   namespace: {{ .Values.applicationNamespace }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
